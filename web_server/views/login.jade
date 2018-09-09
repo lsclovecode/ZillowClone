@@ -1,0 +1,33 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/bootstrap-3.3.7-dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css')
+
+  body
+      .container
+        .col-md-4
+        .col-md-4
+           h1 Please Login
+           br
+           form.form-horizontal(role = "form",method="post",action="/login",id="loginForm")
+            .form-group
+              label.col-md-4.control-label(for="username") username
+              .col-md-8
+                input.form-control#email(type="email",placeholder="please input your  username",name="email",required)
+            .form-group
+              label.col-md-4.control-label(for="password") password
+              .col-md-8
+                input.form-control#password(type="password",placeholder="please input your password",name="password",required)
+            .form-group
+              .col-md-offset-2.col-md-6
+               input.btn.btn-default.btn-block(type="submit",value=" log in")
+            br
+          - if (message)
+            div.alert.alert-danger(role="alert") !{message}
+
+
+
+
+

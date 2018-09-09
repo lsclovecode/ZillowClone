@@ -1,0 +1,23 @@
+extends watchlist_layout
+
+block content
+  table.table.table-hover(style="table-layout: fixed;")
+    thead
+      tr
+        th zpid
+        th size
+        th is_for_sale
+        th list_price
+        th delete
+    tbody
+      for result in results
+        tr(style="border-bottom: 1px solid #eaeaea; ")
+            td #{result.zpid}
+            td #{result.size}
+            td #{result.is_for_sale}
+            td #{result.list_price}
+            td
+              form(method="post", action="/watchlist", id="#{result.zpid}",name="#{result.zpid}" )
+                input(class="form-control", id="zpid", type="hidden", name="zpid", value="#{result.zpid}")
+                input(class="btn navbar-btn" value="delete" type="submit" )
+

@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  .container
+        .col-md-2
+        .col-md-8
+          if Permission
+            form(method="post", action="/closeEmailPermission", id="setting")
+              .col-md-8
+                p Your email Permission is open
+              .col-md-4
+                  input.form-control(class="btn" type="submit" value="关闭邮件提醒" style="font-size: 120%; background-color: #4285f4; color: white;")
+          else
+            form(method="post", action="/openEmailPermission", id="setting")
+              .col-md-8
+                p Your email Permission is not open
+              .col-md-4
+                  input.form-control(class="btn" type="submit" value="开启邮件提醒" style="font-size: 120%; background-color: #4285f4; color: white;")
+        .col-md-2
